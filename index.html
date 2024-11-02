@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Animation</title>
+    <style>
+      @keyframes fadeInOut {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .animate-fade {
+        animation: fadeInOut 5s infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white flex items-center justify-center h-screen">
+    <div class="container text-center">
+      <div class="box w-24 h-24 bg-blue-500 mx-auto my-5 animate-bounce"></div>
+      <div
+        class="name text-4xl font-bold text-yellow-300 animate-pulse font-bold"
+      >
+        Muhammad Rafffey
+      </div>
+      <p class="mt-5 text-lg w-1/2 mx-auto animate-fade font-medium">
+        A skilled professional with expertise in Generative AI, Website
+        Development, and Microsoft Office. My bilingual proficiency in Urdu and
+        English, combined with strong problem-solving and team leadership
+        abilities, make me a versatile asset in collaborative and tech-driven
+        environments. I am eager to leverage my skills to contribute
+        meaningfully to organizational success.
+      </p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
