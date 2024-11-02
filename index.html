@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
@@ -13,35 +14,37 @@
       body {
         font-family: "Fira Code", monospace;
       }
-      @keyframes fadeInOut {
-        0%,
-        100% {
-          opacity: 0;
+
+      /* Extended bounceAndChange animation to include more shapes and colors */
+      @keyframes bounceAndChange {
+        0% {
+          transform: translateY(0);
+          border-radius: 0;
+          background-color: #3b82f6; /* Tailwind blue-500 */
+        }
+        25% {
+          transform: translateY(-80px) scale(1.2);
+          border-radius: 50%;
+          background-color: #10b981; /* Tailwind green-500 */
         }
         50% {
-          opacity: 1;
+          transform: translateY(0) scale(1);
+          border-radius: 15%;
+          background-color: #f59e0b; /* Tailwind yellow-500 */
         }
-      }
-      .animate-fade {
-        animation: fadeInOut 5s infinite;
-      }
-      @keyframes bounceAndChange {
-        0%,
-        20%,
-        80%,
+        75% {
+          transform: translateY(-80px) scale(0.8);
+          border-radius: 30%;
+          background-color: #ef4444; /* Tailwind red-500 */
+        }
         100% {
           transform: translateY(0);
           border-radius: 0;
           background-color: #3b82f6; /* Tailwind blue-500 */
         }
-        50% {
-          transform: translateY(-100px);
-          border-radius: 50%;
-          background-color: #10b981; /* Tailwind green-500 */
-        }
       }
       .animate-bounce-change {
-        animation: bounceAndChange 2s infinite ease-in-out;
+        animation: bounceAndChange 3s infinite ease-in-out;
       }
     </style>
   </head>
@@ -55,19 +58,28 @@
       <div
         class="name text-2xl sm:text-4xl font-bold text-yellow-300 animate-pulse"
       >
-        Muhammad Rafffey
+        Muhammad Raffey
       </div>
       <p
-        class="mt-5 text-base sm:text-lg w-full sm:w-1/2 mx-auto animate-fade font-medium hover:text-blue-500"
-      >
-        A skilled professional with expertise in Generative AI, Website
-        Development, and Microsoft Office. My bilingual proficiency in Urdu and
-        English, combined with strong problem-solving and team leadership
-        abilities, make me a versatile asset in collaborative and tech-driven
-        environments. I am eager to leverage my skills to contribute
-        meaningfully to organizational success.
-      </p>
+        id="typewriter-text"
+        class="mt-5 text-base sm:text-lg w-full sm:w-1/2 mx-auto font-medium hover:text-blue-500"
+      ></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+      const text =
+        "A skilled professional with expertise in Generative AI, Website Development, and Microsoft Office. My bilingual proficiency in Urdu and English, combined with strong problem-solving and team leadership abilities, make me a versatile asset in collaborative and tech-driven environments. I am eager to leverage my skills to contribute meaningfully to organizational success.";
+      const typewriterText = document.getElementById("typewriter-text");
+      let i = 0;
+
+      function typeWriter() {
+        if (i < text.length) {
+          typewriterText.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50); // Adjust typing speed here
+        }
+      }
+
+      typeWriter();
+    </script>
   </body>
 </html>
